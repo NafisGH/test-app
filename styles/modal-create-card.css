@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+#modal {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(56, 55, 55, 0.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #8f8d91;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+ 
+#download-img {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+#modal-content input {
+    margin-bottom: 10px;
+}
+
+#button-close {
+    width: 15px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+#button-close > img {
+    width: 100%;
+}
+
+#modal > #modal-content > input {
+    padding: 0 5px;
+}

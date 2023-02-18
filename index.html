@@ -10,88 +10,77 @@
 </head>
 
 <body>
-    <div class="app">
-        <div class="panel-filter"></div>
-        <div class="panel-search"></div>
-        <div class="panel-cards">
-            <div class="profile_card">
-                <div class="button-nav">
-                    <img class="trash" src="./icons_SVG/trash.svg" alt="trash" width="30px" />
-                    <img class="pencil" src="./icons_SVG/pencil.svg" alt="pencil" width="30px" />
-                    <img class="favorites" src="./icons_SVG/favorites.svg" alt="favorites" width="30px" />
-                </div>
-                <div class="header">Заголовок</div>
-                <div class="author">Автор (тот, кто добавил фото)</div>
-                <div class="foto-Alex" ><img src="./Travel_foto/alex-azabache.jpg" alt="foto-Alex" width="500px"></div>
-                <div class="card-footer">
-                    <div class="button-footer">
-                        <img src="./icons_SVG/dislike.svg" alt="dislike" width="30px">
-                        <img src="./icons_SVG/like.svg" alt="like" width="30px">
-                    </div>
-                    <div class="date">Дата создания</div>
-                </div>
-                
+    
+    <div id="modal">
+        <div id="modal-content">
+            <input type="text" placeholder="сard name" id="сard-name">
+            <input type="text" placeholder="card author" id="card-author">
 
-            </div>
-            <div class="profile_card">
-                <div class="button-nav">
-                    <img class="trash" src="./icons_SVG/trash.svg" alt="trash" width="30px" />
-                    <img class="pencil" src="./icons_SVG/pencil.svg" alt="pencil" width="30px" />
-                    <img class="favorites" src="./icons_SVG/favorites.svg" alt="favorites" width="30px" />
-                </div>
-                <div class="header">Заголовок</div>
-                <div class="author">Автор (тот, кто добавил фото)</div>
-                <div class="foto-Alex" ><img src="./Travel_foto/dino-reichmuth.jpg" alt="foto-Alex" width="500px" height="747"></div>
-                <div class="card-footer">
-                    <div class="button-footer">
-                        <img src="./icons_SVG/dislike.svg" alt="dislike" width="30px">
-                        <img src="./icons_SVG/like.svg" alt="like" width="30px">
-                    </div>
-                    <div class="date">Дата создания</div>
-                </div>
-                
-
-            </div>
-            <div class="profile_card">
-                <div class="button-nav">
-                    <img class="trash" src="./icons_SVG/trash.svg" alt="trash" width="30px" />
-                    <img class="pencil" src="./icons_SVG/pencil.svg" alt="pencil" width="30px" />
-                    <img class="favorites" src="./icons_SVG/favorites.svg" alt="favorites" width="30px" />
-                </div>
-                <div class="header">Заголовок</div>
-                <div class="author">Автор (тот, кто добавил фото)</div>
-                <div class="foto-Alex" ><img src="./Travel_foto/fabio-comparelli.jpg" alt="foto-Alex" width="500px" height="747"></div>
-                <div class="card-footer">
-                    <div class="button-footer">
-                        <img src="./icons_SVG/dislike.svg" alt="dislike" width="30px">
-                        <img src="./icons_SVG/like.svg" alt="like" width="30px">
-                    </div>
-                    <div class="date">Дата создания</div>
-                </div>
-                
-
-            </div>
-            <div class="profile_card">
-                <div class="button-nav">
-                    <img class="trash" src="./icons_SVG/trash.svg" alt="trash" width="30px" />
-                    <img class="pencil" src="./icons_SVG/pencil.svg" alt="pencil" width="30px" />
-                    <img class="favorites" src="./icons_SVG/favorites.svg" alt="favorites" width="30px" />
-                </div>
-                <div class="header">Заголовок</div>
-                <div class="author">Автор (тот, кто добавил фото)</div>
-                <div class="foto-Alex" ><img src="./Travel_foto/luca-bravo.jpg" alt="foto-Alex" width="500px" height="747"></div>
-                <div class="card-footer">
-                    <div class="button-footer">
-                        <img src="./icons_SVG/dislike.svg" alt="dislike" width="30px">
-                        <img src="./icons_SVG/like.svg" alt="like" width="30px">
-                    </div>
-                    <div class="date">Дата создания</div>
-                </div>
-                
-
-            </div>
+            <button type="submit" id="download-img">Загрузить IMG</button>
+            <button id="button-close">
+                <img src="./icons/icons_SVG/close.svg" alt="icon-close">
+            </button>
         </div>
     </div>
+
+    <div class="app">
+        <div class="panel-filter"></div>
+        <div class="panel-search">
+
+            <form class="form-search">
+                <input type="text" id="form-search-input"/>
+                <button class="btn-search form-search-btn">
+                    <img src="./icons/icons_SVG/search.svg" alt="search">
+                </button>
+            </form>
+
+            <button class="btn-search btn-create-new-card">
+                <img src="./icons/icons_SVG/create_a_card.svg" alt="create_a_card">
+            </button>
+
+        </div>
+        <div class="panel-cards">
+            <ul class="list-card">
+                <li class="card">
+                    <div class="top-card-panel ">
+                        <button class="btn-card btn-delete">
+                            <img  src="./icons/icons_SVG/trash.svg" alt="trash"  />
+                        </button>
+                        <button class="btn-card btn-edite">
+                            <img  src="./icons/icons_SVG/pencil.svg" alt="pencil"  />
+                        </button>
+                        <button class="btn-card btn-favorites">
+                            <img  src="./icons/icons_SVG/favorites.svg" alt="favorites"  />
+                        </button>
+                        
+                    </div>
+                    <h2 class="header-card">Заголовок</h2>
+                    <p class="author-card">Автор (тот, кто добавил фото)</p>
+                    <div class="card-img" ><img src="./img/card-img/dino-reichmuth.jpg" alt="foto-Alex" ></div>
+                    <div class="bottom-card-panel">
+                        <div class="buttons-bottom-card-panel">
+                            <button class="btn-card btn-dislike">
+                                <img src="./icons/icons_SVG/dislike.svg" alt="dislike" >
+                            </button>
+                            <button class="btn-card btn-like">
+                                <img src="./icons/icons_SVG/like.svg" alt="like" >
+                            </button>
+                        </div>
+                            
+    
+                        <p class="card-creation-date">18.02.2023</p>
+                    </div>
+                    
+    
+                </li>
+                
+            </ul>
+            
+        
+        </div>
+    </div>
+
+    <script src="./java-script/modal-window/index.js"></script>
 </body>
 
 </html>
