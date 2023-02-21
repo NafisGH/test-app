@@ -1,0 +1,86 @@
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    list-style-type: none;
+
+}
+
+.btn-card {
+    width: var(--primary-width-btn);
+    padding: 10px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    transition: all .1s linear;
+
+}
+
+.btn-card:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.btn-card > img {
+    width: 100%;
+    height: 100%;
+}
+.top-card-panel {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.btn-delete,
+.btn-edite {
+    margin-right: 20px;
+}
+
+
+
+.header-card {
+    /* max-width: 400px; */
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+   
+}
+
+.author-card {
+    /* max-width: 400px; */
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+   
+}
+.card-img {
+   
+    /* width: 350px; */
+    max-height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+.card-img > img {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 25px;
+    transition: 0.7s;
+    display: block;
+}
+
+.card-img > img:hover {
+    transform: scale(1.06);
+}
+
+.bottom-card-panel {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.btn-like {
+    margin-left: 10px;
+}

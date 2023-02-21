@@ -1,0 +1,76 @@
+@import url('./styles/panels/panel-cards/index.css');
+@import url('./styles/panels/panel-filter/index.css');
+@import url('./styles/panels/panel-search/index.css');
+@import url('./styles/panels/panel-title/index.css');
+
+@import url('./styles/popups/index.css');
+
+/* @import url('./panel-search.css');
+@import url('./modal-create-card.css');
+@import url('./panel-filter.css'); */
+
+:root {
+    --primary-width-btn: 45px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    background-color: #c4bebe;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 400px repeat(2, 1fr);
+    grid-template-rows: min-content auto;
+    
+}
+
+.panel-title {
+    background-color: rgba(89, 89, 91, 0.731);
+    grid-row: 1/2;
+    grid-column: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+
+
+
+.panel-filter{
+    background-color: rgba(89, 89, 91, 0.731);
+    grid-row: 2/3;
+    grid-column: 1/2;
+    border-right: 2px solid white;
+
+}
+
+.panel-search {
+    background-color: rgba(89, 89, 91, 0.731);
+    grid-row: 1/2;
+    grid-column: 2/4;
+    border-bottom: 2px solid white;
+
+
+}
+
+.panel-cards {
+    background-color: rgba(89, 89, 91, 0.731);
+    grid-row: 2/3;
+    grid-column: 2/4;
+    padding: 10px;
+
+}
+
+
+
+
+
+
+
+

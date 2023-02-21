@@ -6,7 +6,7 @@
     display: none;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(56, 55, 55, 0.6);
+    background-color: rgba(13, 19, 47, 0.6);
     position: fixed;
     left: 0;
     top: 0;
@@ -15,19 +15,31 @@
     align-items: center;
 }
 
-#modal-content {
-    width: 300px;
+
+#form-modal-content {
+    width: 400px;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: #8f8d91;
-    padding: 20px;
-    box-sizing: border-box;
     position: relative;
 }
- 
+
+
+#form-modal-content input {
+    margin-bottom: 20px;
+    width: 80%;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#form-modal-content h3 {
+    margin: 20% 0 20px 0;
+    font-size: 35px;
+}
 #download-img {
     padding: 5px;
     border-radius: 5px;
@@ -38,16 +50,22 @@
 }
 
 #button-close {
-    width: 15px;
+    width: 25px;
     position: absolute;
     right: 5px;
     top: 5px;
+    cursor: pointer;
 }
 
 #button-close > img {
     width: 100%;
 }
 
-#modal > #modal-content > input {
-    padding: 0 5px;
+#download-img {
+    margin-top: 10%;
+    width: 80%;
+    font-size: 20px;
+    background-color: gray;
 }
+
+
