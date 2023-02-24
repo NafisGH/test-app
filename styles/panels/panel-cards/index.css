@@ -5,8 +5,8 @@
     height: 100%;
     display: grid;
     /* grid-template-columns: repeat(2, minmax(min-content, 400px)); */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    /* grid-template-columns: repeat(auto-fill, 400px); */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 380px));
+    /* grid-template-columns: repeat(auto-fill, 350px); */
     grid-template-rows: 500px;
     gap: 20px;
 

@@ -1,9 +1,10 @@
-@import url('./styles/panels/panel-cards/index.css');
-@import url('./styles/panels/panel-filter/index.css');
-@import url('./styles/panels/panel-search/index.css');
-@import url('./styles/panels/panel-title/index.css');
+@import url('./panels/panel-cards/index.css');
+@import url('./panels/panel-filter/index.css');
+@import url('./panels/panel-search/index.css');
+@import url('./panels/panel-title/index.css');
 
-@import url('./styles/popups/index.css');
+
+@import url('./popups/index.css');
 
 /* @import url('./panel-search.css');
 @import url('./modal-create-card.css');
