@@ -1,5 +1,5 @@
 
-import '../styles/'
+import '../styles/root.css'
 
 const modal = document.querySelector('#modal');
 const modalContent = document.querySelector('#modal-content');
