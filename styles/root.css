@@ -11,7 +11,7 @@
 @import url('./panel-filter.css'); */
 
 :root {
-    --primary-width-btn: 45px;
+    --primary-width-btn: 40px;
 }
 
 * {

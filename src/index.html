@@ -19,7 +19,7 @@
                 <input type="text" id="сard-name" />
                 <label for="card-author">Автор</label>
                 <input type="text" id="card-author" />
-                <label for="url">url картинки</label>
+                <label for="urlImg">url картинки</label>
                 <input type="url" id="urlImg" />
                 <!-- <label for="date-card">Дата создания карточки</label>
                 <input type="date" id="date-card" /> -->
@@ -30,11 +30,46 @@
             </form>
         </div>
     </div>
+    <!-- Модальное окно изменения карточки -->
+    <div id="modal-edite-card">
+        <div id="modal-edite-content">
+            <form action="" id="form-modal-edite-card">
+                <h3>Изменить карточку</h3>
+                <label for="сard-name-edite">Имя карточки</label>
+                <input type="text" id="name-edite" />
+                
+                <label for="urlImg-edite">url картинки</label>
+                <input type="url" id="urlImg-edite" />
+                
+                <button type="button" id="btn-edite-content">Изменить</button>
+
+                <img src="<%=require('../assets/icons/icons_SVG/close.svg')%>" alt="icon-close" id="button-close-edite-card" />
+            </form>
+        </div>
+    </div>
+
+    
+
+
+        
+
+        <!-- Модальное окно удаление карточки -->
+    <div id="modal-delete-card">
+        <!-- <div id="modal-delete-content"> -->
+            <form action="" id="form-modal-delete-card">
+                <h3>Вы действительно хотите удалить карточку ?</h3>
+                <button type="button" id="btn-confirm-delete-card">Удалить</button>
+                <img src="<%=require('../assets/icons/icons_SVG/close.svg')%>" alt="icon-close" id="button-close-delete-card" />
+            </form>
+        <!-- </div> -->
+    </div>
+<!-- ----------------------------- -->
 
     <div class="app">
         <div class="panel-title">
             <h2 class="name-project">Nafis Test-App</h2>
         </div>
+
         <!-- Панель фильтра -->
         <div class="panel-filter">
             <h3 class="header-filter">Фильтр</h3>
@@ -57,6 +92,7 @@
                 </div>
             </form>
         </div>
+
         <!-- Панель поиска -->
         <div class="panel-search">
             <form class="form-search">
@@ -71,6 +107,7 @@
             </button>
             <!-- <p class="text-create-new-card">Создать новую карточку</p> -->
         </div>
+
         <!-- Панель карточек -->
         <div class="panel-cards">
             <ul class="list-card">
@@ -82,7 +119,7 @@
                             <button class="btn-card btn-delete">
                                 <img src="<%=require('../assets/icons/icons_SVG/trash.svg')%>" alt="trash" />
                             </button>
-                            <button class="btn-card btn-edite">
+                            <button class="btn-card btn-edite" id="btn-edite">
                                 <img src="<%=require('../assets/icons/icons_SVG/pencil.svg')%>" alt="pencil" />
                             </button>
                             <button class="btn-card btn-favorites">
@@ -98,14 +135,15 @@
 
                         <div class="bottom-card-panel">
                             <div class="buttons-bottom-card-panel">
-                                <span class="value">0</span>
-                                <button class="btn-card btn-dislike">
-                                    <img src="<%=require('../assets/icons/icons_SVG/dislike.svg')%>" alt="dislike" />
-                                </button>
-                                <span class="value">0</span>
+                                <span class="valueLike">0</span>
                                 <button class="btn-card btn-like">
                                     <img src="<%=require('../assets/icons/icons_SVG/like.svg')%>" alt="like" />
                                 </button>
+                                <span class="valueDislike">0</span>
+                                <button class="btn-card btn-dislike">
+                                    <img src="<%=require('../assets/icons/icons_SVG/dislike.svg')%>" alt="dislike" />
+                                </button>
+                               
                             </div>
 
                             <p class="card-creation-date"></p>
