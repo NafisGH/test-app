@@ -14,6 +14,8 @@ const inputs = {
     src: '',
  }
 
+ let currentElementsCard = '';
+
 
 const onChangeInput = (event, valueInput) => {
   valueInput = event.target.value;
@@ -27,25 +29,29 @@ input_urlImg_modalEditeCard.addEventListener("input", (event) => {
   onChangeInput(event, value_input_urlImg_modalEditeCard);
 });
 
-// btnEditCard.addEventListener("click", () => {
-//   modalEditeCard.classList.add("active");
-//   input_name_modalEditeCard.value = headerTitle.innerText;
-//   input_urlImg_modalEditeCard.value = imgCard.src;
-// });
 
-    const openPopupEditCard = ( {headerTitle, imgCard} ) => {
+// Функция открывает окно редактирования карточки
+    const openPopupEditCard = ( {headerTitle, imgCard, elCard} ) => {
+       currentElementsCard = {headerTitle, imgCard, elCard} 
         modalEditeCard.classList.add("active");
+
         input_name_modalEditeCard.value = headerTitle.textContent
         input_urlImg_modalEditeCard.value = imgCard.src
+}
 
+// Ф-я сохранение изменений
+const saveEditeContent = () => {
+       const {headerTitle, imgCard, elCard} = currentElementsCard
+        headerTitle.textContent = input_name_modalEditeCard.value;
+        imgCard.src = input_urlImg_modalEditeCard.value;
+        modalEditeCard.classList.remove("active");
 }
 
 btnSaveEditeContent.addEventListener("click", (event) => {
   event.preventDefault();
-  headerTitle.innerText = input_name_modalEditeCard.value;
-  imgCard.src = input_urlImg_modalEditeCard.value;
-  modalEditeCard.classList.remove("active");
-});
+  saveEditeContent();
+})
+
 
 buttonCloseEditeCard.addEventListener("click", () => {
   modalEditeCard.classList.remove("active");
@@ -57,4 +63,5 @@ buttonCloseEditeCard.addEventListener("click", () => {
 
 export {
     openPopupEditCard,
+    saveEditeContent,
 }

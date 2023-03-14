@@ -8,34 +8,53 @@ import {
 
 import {
     openPopupEditCard,
-} from '../edite-card/popup-edite-card.js'
+    saveEditeContent,
+} from '../edite-card/popup-edite-card.js';
+
+import {
+  openPopupDeleteCard,
+  closePopupDeleteCard,
+} from '../delete-card/popup-delete-card.js';
 
 const modal = document.querySelector("#modal");
 const modalContent = document.querySelector("#modal-content");
 
 const inputCardName = document.querySelector("#сard-name");
+
 const inputAuthor = document.querySelector("#card-author");
 const inputUrlImg = document.querySelector("#urlImg");
 const btnCloseCreateCard = document.querySelector("#button-close");
 const buttonCreate = document.querySelector("#create");
 
+const errorTitle = document.querySelector('.error-title');
+const errorAuthor = document.querySelector('.error-author');
+const errorUrlImg = document.querySelector('.error-urlImg');
+
+
 let valueInputCardName = "";
 let valueInputAuthor = "";
 let valueinputUrlImg = "";
 
-const inputs = {
-  title: "",
-  author: "",
-  urlImg: "",
-};
+
 
 // Функция открытия создания карточки, Экспортировал в index.js  и там вызывается
 export const openCreatePopup = () => {   
   modal.style.display = "flex";
 };
 
-const tmplNewCard = document.querySelector("#tmpl-new-card");
+// const tmplNewCard = document.querySelector("#tmpl-new-card");
 const listCards = document.querySelector(".list-card");
+
+// Ф-ии лайка и дизлайка
+export const likes = (dataCard, elCountLike) => {
+  dataCard.likes += 1;
+  elCountLike.textContent = dataCard.likes;
+};
+
+export const dislikes = (dataCard, elCountDislike) => {
+  dataCard.dislikes += 1;
+  elCountDislike.textContent = dataCard.dislikes;
+};
 
 // Функция открытия и закрытия модального окна + создание новой карточки
 const handleCreateNewcard = () => {
@@ -47,14 +66,13 @@ const handleCreateNewcard = () => {
     date,
     resDate,
     id,
-    // likes: 0,
-    // dislikes: 0,
-
+    likes: 0,
+    dislikes: 0,
   }
 
   const elemNewCard = getElementsNewCard();
   const {
-    card,
+    elCard,
     headerTitle,
     authorCard,
     imgCard,
@@ -69,49 +87,44 @@ const handleCreateNewcard = () => {
     elCountDislike,
     btnLike,
     btnDislike,
-    btnDelete,
+    btnDeleteCard,
     btnAddFavorites,
   } = elemNewCard;
 
-  headerTitle.textContent = dataCard.title;
-  authorCard.textContent = dataCard.author;
-  imgCard.src = dataCard.urlImg;
+  headerTitle.textContent = valueInputCardName;
+  authorCard.textContent = valueInputAuthor;
+  imgCard.src = valueinputUrlImg;
   cardDate.textContent = dataCard.resDate;
-  card.id = dataCard.id;
+  elCard.id = dataCard.id;
 
-//   btnEditCard.addEventListener("click", () => {
-//      openPopupEditCard(elemNewCard)
-//     // modalEditeCard.classList.add("active");
-//     // input_name_modalEditeCard.value = headerTitle.innerText;
-//     // input_urlImg_modalEditeCard.value = imgCard.src;
-//   });
+  
+   
+
+  btnEditCard.addEventListener("click", () => { openPopupEditCard(elemNewCard) });
+  btnDeleteCard.addEventListener('click', () => { openPopupDeleteCard(elemNewCard) });
+  btnLike.addEventListener('click', () => { likes(dataCard, elCountLike) });
+  btnDislike.addEventListener('click', () => { dislikes(dataCard, elCountDislike) });
+
+  
+  
+
+  
 
 
-//   const btnDeleteCard = card.querySelector(".btn-delete");
-//   const modalDeleteCard = document.querySelector("#modal-delete-card");
-//   const btnConfirmDeleteCard = card.querySelector("#btn-confirm-delete-card");
-//   const buttonCloseDeleteCard = document.querySelector(
-//     "#button-close-delete-card"
-//   );
+  
 
-//   btnDeleteCard.addEventListener("click", () => {
-//     modalDeleteCard.classList.add("active");
-//   });
-
-//   buttonCloseDeleteCard.addEventListener("click", () => {
-//     modalDeleteCard.classList.remove("active");
-//   });
 
   
 // Добавляем объект с данными картоки в массив
+console.log(dataCard)
   cards.push(dataCard);
 
-  return card;
+  return elCard;
 };
 
 
-const handleAddNewCard = (card) => {
-  listCards.prepend(card);
+const handleAddNewCard = (elCard) => {
+  listCards.prepend(elCard);
 };
 
 inputCardName.addEventListener("input", (event) => {
@@ -151,6 +164,9 @@ btnCloseCreateCard.addEventListener("click", () => {
   valueInputCardName = "";
   valueInputAuthor = "";
   valueinputUrlImg = "";
+  errorTitle.textContent = "";
+  errorAuthor.textContent = "";
+  errorUrlImg.textContent = "";
 });
 
 
@@ -169,4 +185,97 @@ modalContent.addEventListener("click", (event) => {
   event.stopPropagation();
 });
 
+// Валидация инпутов
+const inputs = {
+  title: {
+    value: '',
+    valid: false,
+  },
+  author: {
+    value: '',
+    valid: false,
+  },
+  url: {
+    value: '',
+    valid: false,
+  },
+};
+
+inputCardName.addEventListener("input", (event) => {
+  inputs.title.value = event.target.value
+  console.log(inputs)
+})
+
+inputCardName.addEventListener('change', () => {
+  if (!inputs.title.value) {
+     errorTitle.textContent = 'Поле пустое';
+     return
+  } 
+  if (inputs.title.value.length < 2) {
+     errorTitle.textContent = 'Поле слишком короткое';
+     return;
+  } 
+  if (inputs.title.value.length > 15) {
+     errorTitle.textContent = 'Поле слишком большое';
+     return;
+  } else {
+    buttonCreate.removeAttribute('disabled')
+  } 
+})
+
+
+  inputAuthor.addEventListener('input', (event) => {
+  inputs.author.value = event.target.value
+  console.log(inputs)
+})
+ 
+inputAuthor.addEventListener('change', () => {
+  if (!inputs.author.value) {
+    errorAuthor.textContent = 'Поле пустое';
+    return 
+  } 
+  if (inputs.author.value.length < 2) {
+    errorAuthor.textContent = 'Поле слишком короткое'
+     return ;
+  } 
+  if (inputs.author.value.length > 15) {
+    errorAuthor.textContent = 'Поле слишком большое'
+     return ;
+  } else {
+    buttonCreate.removeAttribute('disabled')
+  }
+ })
+
+ inputUrlImg.addEventListener('input', (event) => {
+  inputs.url.value = event.target.value
+  console.log(inputs)
+})
+
+inputUrlImg.addEventListener('change', (name, value) => {
+  let url;
+  if(!inputs.url.value)  {
+    errorUrlImg.textContent =  "Поле url не должно быть пустым"
+
+  };
+  try {
+    url = new URL(value);
+  } catch (_) {
+    return {
+      valid: false,
+      message: "Неправильная ссылка на картинку"
+    };
+  }
+  if(url.protocol === "http:" || url.protocol === "https:") {
+    return {
+      valid: true,
+      message: ""
+    }
+  } else {
+    return {
+      valid: false,
+      message: "Неправильная ссылка на картинку"
+    };
+  }
+}
+)
 

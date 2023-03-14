@@ -1,18 +1,22 @@
 
-
+export const preventDefaults = (event) => { 
+    event.preventDefault()
+    event.stopPropagation() 
+  };
 
 export const getElementsNewCard = () => {
-    const tmplNewCard = document.querySelector('#tmpl-new-card');
-    const card = tmplNewCard.content.querySelector('.card').cloneNode(true);
+    const tmplNewCard = document.querySelector('#tmpl-new-card'); // Нашли шаблон
+    const cardClone = tmplNewCard.content.cloneNode(true); // Создаем клон шаблона
+    const elCard = cardClone.querySelector('.card'); // Находим Li клонированный элемент
 
     
     
-    const headerTitle = card.querySelector('.header-card');
-    const authorCard = card.querySelector('.author-card');
-    const imgCard = card.querySelector('.img-card');
-    const cardDate = card.querySelector('.card-creation-date');
+    const headerTitle = elCard.querySelector('.header-card');
+    const authorCard = elCard.querySelector('.author-card');
+    const imgCard = elCard.querySelector('.img-card');
+    const cardDate = elCard.querySelector('.card-creation-date');
 
-    const btnEditCard = card.querySelector('.btn-edite'); // Кнопка на карточке изменить "карандашик" 
+    const btnEditCard = elCard.querySelector('.btn-edite'); // Кнопка на карточке изменить "карандашик" 
 
     const modalEditeCard = document.querySelector('#modal-edite-card');
     const buttonCloseEditeCard = document.querySelector('#button-close-edite-card'); // Кнопка закрытия окна изменеия карточки
@@ -20,19 +24,19 @@ export const getElementsNewCard = () => {
     const input_urlImg_modalEditeCard = modalEditeCard.querySelector('#urlImg-edite');
     const btnSaveEditeContent = modalEditeCard.querySelector('#btn-edite-content') // кнопка подтверждения изменений
 
-    const elCountLike = card.querySelector('.valueLike');
-    const elCountDislike = card.querySelector('.valueDislike');
-    const btnLike = card.querySelector('.btn-like');
-    const btnDislike = card.querySelector('.btn-dislike');
+    const elCountLike = elCard.querySelector('.valueLike');
+    const elCountDislike = elCard.querySelector('.valueDislike');
+    const btnLike = elCard.querySelector('.btn-like');
+    const btnDislike = elCard.querySelector('.btn-dislike');
 
-    const btnDelete = card.querySelector('.btn-delete');
+    const btnDeleteCard = elCard.querySelector('.btn-delete');
 
-    const btnAddFavorites = card.querySelector('.btn-favorites');
+    const btnAddFavorites = elCard.querySelector('.btn-favorites');
 
 
 
     return {
-        card,
+        elCard,
         headerTitle, 
         authorCard, 
         imgCard, 
@@ -47,7 +51,7 @@ export const getElementsNewCard = () => {
         elCountDislike,
         btnLike,
         btnDislike,
-        btnDelete,
+        btnDeleteCard,
         btnAddFavorites,
 
     }
