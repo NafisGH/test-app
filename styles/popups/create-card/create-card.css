@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-#modal {
+#modal-create-card {
     display: none;
     width: 100vw;
     height: 100vh;
@@ -10,9 +10,12 @@
     position: fixed;
     left: 0;
     top: 0;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
+}
+
+#modal-create-card.active {
+    display: flex;
 }
 
 #form-modal-content .field-input {
