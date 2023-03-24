@@ -3,6 +3,7 @@
 export default class Popup {
     constructor(clsModalCard) {
         this.popup = document.getElementById(clsModalCard);
+        this.btnClose = this.popup.querySelector('.btn-close-popup')
     }
 
     openPopup() {
@@ -11,6 +12,13 @@ export default class Popup {
 
     closePopup() {
         this.popup.classList.remove('active');
+    }
+
+    initClosePopup() {
+        this.btnClose.addEventListener('click', () => {
+            this.closePopup()
+        })
+
     }
 
 }

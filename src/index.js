@@ -11,8 +11,12 @@ import { openPopupDeleteCard } from '../scripts/delete-card/popup-delete-card.js
 
 import Popup from "../scripts/Popup"; 
 import PopupCreateCard from "../scripts/PopupCreateCard";
+import PopupEditeCard from "../scripts/PopupEditeCard";
+
+
 
 const buttonCreateNewCard = document.querySelector(".btn-create-new-card");
+
 
 // Создаем пустой массив что бы потом заполнять его карточками
 export const cards = [
@@ -58,9 +62,14 @@ const showCardFromServer = (dataCard) => {
     elCard.id = dataCard.id;
 
     btnEditCard.addEventListener("click", () => { openPopupEditCard(elemNewCard) });
+
+
     btnDeleteCard.addEventListener('click', () => { openPopupDeleteCard(elemNewCard) });
     btnLike.addEventListener('click', () => { likes(dataCard, elCountLike) });
     btnDislike.addEventListener('click', () => { dislikes(dataCard, elCountDislike) });
+
+    
+  
 
     
     return elCard
@@ -75,7 +84,11 @@ cards.forEach((card) => {
 
 
 const popupCreateCard = new PopupCreateCard('modal-create-card');
+console.log(popupCreateCard)
 buttonCreateNewCard.addEventListener("click", () => { popupCreateCard.openPopup() });
+console.log(buttonCreateNewCard)
+
+
 
 
 

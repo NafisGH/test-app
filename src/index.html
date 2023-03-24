@@ -38,7 +38,7 @@
 
                 <button type="button" id="create" >Создать</button>
 
-                <img src="<%=require('../assets/icons/icons_SVG/close.svg')%>" alt="icon-close" id="button-close" />
+                <img src="<%=require('../assets/icons/icons_SVG/close.svg')%>" alt="icon-close" class="btn-close-popup" id="button-close" />
             </form>
         </div>
     </div>
@@ -55,7 +55,7 @@
                 
                 <button type="button" id="btn-edite-content">Изменить</button>
 
-                <img src="<%=require('../assets/icons/icons_SVG/close.svg')%>" alt="icon-close" id="button-close-edite-card" />
+                <img src="<%=require('../assets/icons/icons_SVG/close.svg')%>" alt="icon-close" class="btn-close-popup" id="button-close-edite-card" />
             </form>
         </div>
     </div>
@@ -71,7 +71,7 @@
             <form action="" id="form-modal-delete-card">
                 <h3>Вы действительно хотите удалить карточку ?</h3>
                 <button type="button" id="btn-confirm-delete-card">Удалить</button>
-                <img src="<%=require('../assets/icons/icons_SVG/close.svg')%>" alt="icon-close" id="button-close-delete-card" />
+                <img src="<%=require('../assets/icons/icons_SVG/close.svg')%>" alt="icon-close" class="btn-close-popup" id="button-close-delete-card" />
             </form>
         </div>
     </div>
@@ -128,7 +128,7 @@
                 <template id="tmpl-new-card">
                     <li class="card">
                         <div class="top-card-panel">
-                            <button class="btn-card btn-delete">
+                            <button class="btn-card btn-delete" id="btn-delete">
                                 <img src="<%=require('../assets/icons/icons_SVG/trash.svg')%>" alt="trash" />
                             </button>
                             <button class="btn-card btn-edite" id="btn-edite">
