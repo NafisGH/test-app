@@ -1,15 +1,11 @@
 import Popup from "./Popup";
-import { handleGetCorrectDate, getElementsNewCard } from "../utils/helper";
-import { cards } from "../src";
+import { handleGetCorrectDate, } from "../utils/helper";
+import { cardsFromServer } from "../src";
 
-import PopupEditeCard from "./PopupEditeCard";
-import PopupDeleteCard from "./PopupDeleteCard";
+import Card from "./Card";
+import { cards } from "../utils/constants";
 
 const listCards = document.querySelector(".list-card");
-
-let valueInputCardName = "";
-let valueInputAuthor = "";
-let valueInputUrlImg = "";
 
 export default class PopupCreateCard extends Popup{
     constructor(clsModalCard) {
@@ -36,6 +32,7 @@ export default class PopupCreateCard extends Popup{
         this.inputUrlImg = document.getElementById("urlImg");
 
         this.init()
+        
     }   
 
     init() {
@@ -51,16 +48,28 @@ export default class PopupCreateCard extends Popup{
 
       this.btnSubmit.addEventListener('click', (event) => {
         event.preventDefault();
-        const newElCard = this.createNewCard()
-        listCards.append(newElCard)
-        super.closePopup()
+        const newElCard = this.createNewCard();
+        cards.push(newElCard)
+        listCards.append(newElCard);
+        super.closePopup();
+        this.clearInputs();
         
       })
      
       this.btnCloseModalCreate.addEventListener('click', ()=> {
-        super.closePopup()
+        super.closePopup();
+        this.clearInputs();
       })
       
+    }
+
+    clearInputs() {
+      this.inputs.title.value = '';
+      this.inputs.author.value = '';
+      this.inputs.url.value = '';
+      this.inputTitleCardName.value = ''; 
+      this.inputAuthor.value = ''; 
+      this.inputUrlImg.value = ''; 
     }
       
     createNewCard() {
@@ -76,54 +85,11 @@ export default class PopupCreateCard extends Popup{
             likes: 0,
             dislikes: 0,
           }
-        const elemNewCard = getElementsNewCard();
 
-        const likes = (dataCard, elCountLike) => {
-          dataCard.likes += 1;
-          elCountLike.textContent = dataCard.likes;
-        };
-        const dislikes = (dataCard, elCountDislike) => {
-          dataCard.dislikes += 1;
-          elCountDislike.textContent = dataCard.dislikes;
-        };
-        
-        elemNewCard.btnLike.addEventListener('click', () => { likes(dataCard, elemNewCard.elCountLike) });
-        elemNewCard.btnDislike.addEventListener('click', () => { dislikes(dataCard, elemNewCard.elCountDislike) });
+          const newCard = new Card(dataCard)
 
-        const popupEditCard = new PopupEditeCard('modal-edite-card')
-        const btnEditCard = elemNewCard.elCard.querySelector('.btn-edite');
-        btnEditCard.addEventListener('click', () => {
-          popupEditCard.openPopup()
-        })
+          cardsFromServer.push(dataCard)
 
-        const popupDeleteCard = new PopupDeleteCard('modal-delete-card')
-        const btnDeleteCard = elemNewCard.elCard.querySelector('.btn-delete');
-        btnDeleteCard.addEventListener('click', () => {
-          popupDeleteCard.openPopup()
-        })
-
-
-
-        elemNewCard.headerTitle.textContent = this.inputs.title.value;
-        elemNewCard.authorCard.textContent = this.inputs.author.value;
-        elemNewCard.imgCard.src = this.inputs.url.value;
-        elemNewCard.cardDate.textContent = resDate;
-        elemNewCard.elCard.id = id;
-
-       
-
-        cards.push(dataCard)
-
-        return elemNewCard.elCard;
-
-        
+        return newCard.getElCard()   
     }
-
-    
-    
-    // open() {
-    //     super.openPopup(); // Это вызывается у родительского класса метод openPopup()
-
-    // }
-
 }

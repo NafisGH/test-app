@@ -5,6 +5,7 @@
     width: 100%;
     list-style-type: none;
     /* max-width: 350px; */
+    max-height: 500px;
 }
 
 .btn-card {
