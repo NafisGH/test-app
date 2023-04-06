@@ -29,14 +29,12 @@ export default class PopupEditeCard extends Popup {
         this.btnSubmit.addEventListener('click', (event) => {
             event.preventDefault()
             const {title, url, elCard, id} = this.currentElementsCard;
-            console.log(id, cards)
             const card = cards.find((card) => card.id === id)
-            console.log('------------>', card)
+
             this.currentElementsCard.title.textContent = this.inputs.title.value;
             this.currentElementsCard.url.textContent = this.inputs.url.value;
-            // card.title = this.inputs.title.value; // ???
-            // card.url = this.inputs.url.value; // ???
-
+            card.title = this.inputs.title.value;
+            card.url = this.inputs.url.value;
 
             this.inputs.title.value = '';
             this.inputs.url.value = '';
@@ -55,7 +53,7 @@ export default class PopupEditeCard extends Popup {
     }
 
     openPopup({title, url, elCard, id}) {
-      console.log(id)
+
 
         this.currentElementsCard = {title, url, elCard, id}
         super.openPopup();

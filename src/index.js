@@ -101,8 +101,22 @@ btnSearch.addEventListener('click', (event) => {
 
     // Находим карточки, которые в данный момент показываются на странице
     let currentElListCards = listCards.querySelectorAll('.card')
+
+    currentElListCards.forEach((currentElCard) => {
+        if (!filteredIdCards.includes(currentElCard.id)) {
+            currentElCard.remove()
+        }
+    })
+
+    filteredElCards.forEach((elFilteredElCards) => {
+        const listCards = document.querySelector('.list-card')
+        if(!listCards.querySelector(`li.card[id="${elFilteredElCards.id}"]`)) {
+            listCards.append(elFilteredElCards.elemNewCard.elCard)  // Добавляем в разметку Li, карточку объект
+        }
+        
+    })
     
-    console.log(currentElListCards)
+    
 })
 
 
