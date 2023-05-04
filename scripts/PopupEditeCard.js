@@ -2,6 +2,7 @@ import Popup from "./Popup";
 
 import { getElementsNewCard } from "../utils/helper";
 import { cards } from "../utils/constants";
+// import { updatePages } from "./pagination";
 const elemNewCard = getElementsNewCard()
 
 export default class PopupEditeCard extends Popup {
@@ -40,6 +41,7 @@ export default class PopupEditeCard extends Popup {
             this.inputs.url.value = '';
             this.inputTitle.value = '';
             this.inputUrl.value = '';
+            this.updatePages(cards)
             super.closePopup()
         })
 
@@ -52,17 +54,15 @@ export default class PopupEditeCard extends Popup {
           })
     }
 
-    openPopup({title, url, elCard, id}) {
-
-
+    openPopup({title, url, elCard, id, updatePages}) {
         this.currentElementsCard = {title, url, elCard, id}
         super.openPopup();
         this.elemEditeCard = elemNewCard
-
         this.inputTitle.value = title.textContent;
         this.inputUrl.value = url.src;
         this.inputs.title.value = title.textContent;
         this.inputs.url.value = url.src;
+        this.updatePages = updatePages;
 
     }
 }

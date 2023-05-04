@@ -1,3 +1,4 @@
+export const listCards = document.querySelector('.list-card');
 
 export const cards = [];
 

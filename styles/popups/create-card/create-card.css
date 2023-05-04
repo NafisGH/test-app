@@ -23,11 +23,19 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+
 }
+
+#form-modal-content .field-input .drop-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #form-modal-content {
-    width: 400px;
-    height: 500px;
+    width: 450px;
+    /* height: 600px; */
     border: 1px solid black;
     border-radius: 10px;
     background-color: #fff;
@@ -39,14 +47,14 @@
 
 
 #form-modal-content .field-input input {
+    
     margin-bottom: 20px;
-    width: 80%;
-    border-radius: 5px;
+    width: 100%;
     font-size: 20px;
 }
 
 #form-modal-content h3 {
-    margin: 20% 0 20px 0;
+    margin: 5% 0 20px 0;
     font-size: 35px;
 }
 
@@ -69,9 +77,9 @@
 #create {
     width: 80%;
     font-size: 20px;
-    background-color: gray;
-    padding: 5px;
-    border-radius: 5px;
+    background-color: rgb(199, 195, 195);
+    padding: 15px;
+    border-radius: 25px;
     border: none;
 }
 
@@ -96,4 +104,46 @@
   
   input:valid {
     border: 2px solid black;
+  }
+
+  #modal-content form label {
+    font-size: 20px;
+  }
+
+  #form-modal-content {
+    padding: 50px;
+  }
+
+  #modal-create-card .drop-area {
+    width: 100%;
+    height: 200px;
+    border: 1px dashed black;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  #modal-create-card .drop-area label {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+  }
+
+  #modal-create-card .drop-area label:hover {
+    cursor: pointer;
+    background-color: #b4b1b1;
+  }
+
+  #modal-create-card .drop-area input {
+    display: none;
+  }
+
+  #modal-create-card .drop-area p {
+    margin-top: 6%;
+  }
+
+  .drop-area.highlight {
+    border-color: red;
   }

@@ -1,4 +1,4 @@
-
+/* 
 
 .header-filter {
     text-align: center;
@@ -8,13 +8,13 @@
 
 /* .block-filter input, button {
     display: inline-block;
-} */
+} 
 
 .form-filter {
     width: 100%;
     height: 100%;
     /* display: flex;
-    flex-direction: column; */
+    flex-direction: column; 
 }
 .panel-filter {
     display: flex;
@@ -37,7 +37,7 @@
 .block-filter > input {
     margin-bottom: 10px;
     width: 100%;
-    max-width: 80%;  /* 60% от текущего родительского окна */
+    max-width: 80%;  /* 60% от текущего родительского окна 
     outline: none;
     padding: 0 10px;
 }
@@ -51,4 +51,4 @@
 
 .btn-reset-filter {
     margin-bottom: 10px;
-}
+} */

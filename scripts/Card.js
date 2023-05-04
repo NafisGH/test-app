@@ -15,8 +15,7 @@ export default class Card {
         this.date = data.date;
         this.resDate = data.resDate;
         this.id = data.id;
-
-
+        this.updatePages = data.updatePages;
 
         this.init()
     }
@@ -58,14 +57,20 @@ export default class Card {
                 url: this.elemNewCard.imgCard,
                 elCard: this.elemNewCard.elCard,
                 id: this.id,
+                updatePages: this.updatePages,
               })
             })
     }
 
     initPopupDeleteCard() {
         this.elemNewCard.btnDeleteCard.addEventListener('click', () => {
-            Card.popupDeleteCard.openPopup({elCard: this.elemNewCard.elCard})
+            Card.popupDeleteCard.openPopup({
+              elCard: this.elemNewCard.elCard,
+              updatePages: this.updatePages,
+            })
+
           })
+          
     }
 
     handleLikes = () => {

@@ -1,11 +1,12 @@
 import Popup from "./Popup";
-import { cards } from "../utils/constants";
+import { cards } from "../utils/constants.js";
 
 export default class PopupDeleteCard extends Popup {
     constructor(clsModalCard) {
         super(clsModalCard);
         this.btnDelete = this.popup.querySelector('#btn-confirm-delete-card')
         this.curentElCard = '';
+        
 
         this.init()
     }
@@ -17,15 +18,16 @@ export default class PopupDeleteCard extends Popup {
             if(index !== -1) {
                 cards.splice(index, 1);
                 this.curentElCard.remove();
+                this.updatePages(cards)
             } else {
                 alert("В массиве данной карточки нет")
             }
-            
             super.closePopup()
         })
     }
-    openPopup({elCard}) {
+    openPopup({elCard, updatePages }) {
         super.openPopup()
-        this.curentElCard = elCard
+        this.curentElCard = elCard;
+        this.updatePages = updatePages;
     }
 }

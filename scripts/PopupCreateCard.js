@@ -1,13 +1,15 @@
 import Popup from "./Popup";
 import { handleGetCorrectDate, } from "../utils/helper";
 import { cardsFromServer } from "../src";
+import DragAndDrop from "./DragAndDrop";
 
 import Card from "./Card";
-import { cards } from "../utils/constants";
+import { cards } from "../utils/constants.js";
+
 
 const listCards = document.querySelector(".list-card");
 
-export default class PopupCreateCard extends Popup{
+export default class PopupCreateCard extends Popup {
     constructor(clsModalCard) {
         super(clsModalCard);
         this.inputs = {
@@ -51,10 +53,12 @@ export default class PopupCreateCard extends Popup{
         const newElCard = this.createNewCard();
         cards.push(newElCard)
         listCards.append(newElCard);
+
         super.closePopup();
         this.clearInputs();
         
       })
+      
      
       this.btnCloseModalCreate.addEventListener('click', ()=> {
         super.closePopup();
@@ -62,6 +66,8 @@ export default class PopupCreateCard extends Popup{
       })
       
     }
+
+   
 
     clearInputs() {
       this.inputs.title.value = '';
@@ -89,7 +95,10 @@ export default class PopupCreateCard extends Popup{
           const newCard = new Card(dataCard)
 
           cardsFromServer.push(dataCard)
-
-        return newCard.getElCard()   
+        return newCard   
     }
+
+    
 }
+
+new DragAndDrop();

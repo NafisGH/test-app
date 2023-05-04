@@ -1,0 +1,57 @@
+.panel-pagination-list-cards {
+    background: rgb(94, 124, 246);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.panel-pagination-list-cards ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0px 15px 0px 15px;
+}
+
+.panel-pagination-list-cards ul li:not(:last-child) {
+    margin-right: 30px;
+}
+
+.panel-pagination-list-cards ul li.active {
+    background: gray;
+    border: 1px solid black;
+}
+
+.panel-pagination-list-cards ul li:hover {
+    transform: scale(0.9);
+}
+
+.panel-pagination-list-cards ul li {
+    width: 40px;
+    height: 40px;
+    background: white;
+    display: grid;
+    place-items: center;
+    font-size: 35px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    user-select: none;
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+.btn-prev,
+.btn-next {
+    border-radius: 50%;
+    border: none;
+    user-select: none;
+    transition: all 0.2s linear;
+}
+
+.btn-prev:hover,
+.btn-next:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
