@@ -2,12 +2,12 @@ import Popup from "./Popup";
 
 import { getElementsNewCard } from "../utils/helper";
 import { cards } from "../utils/constants";
-// import { updatePages } from "./pagination";
+
 const elemNewCard = getElementsNewCard()
 
 export default class PopupEditeCard extends Popup {
-    constructor(clsModalCard) {
-        super(clsModalCard);
+    constructor({cls, updatePages}) {
+        super(cls);
         this.btnSubmit = this.popup.querySelector('#btn-edite-content');
         this.currentElementsCard = '';
         this.inputs = {
@@ -19,7 +19,9 @@ export default class PopupEditeCard extends Popup {
                 value: '',
                 valid: false,
               },
-        }
+        };
+        this.updatePages = updatePages;
+
         this.inputTitle = this.popup.querySelector('#name-edite')
         this.inputUrl = this.popup.querySelector('#urlImg-edite')
 
@@ -54,7 +56,7 @@ export default class PopupEditeCard extends Popup {
           })
     }
 
-    openPopup({title, url, elCard, id, updatePages}) {
+    openPopup({title, url, elCard, id,}) {
         this.currentElementsCard = {title, url, elCard, id}
         super.openPopup();
         this.elemEditeCard = elemNewCard
@@ -62,7 +64,7 @@ export default class PopupEditeCard extends Popup {
         this.inputUrl.value = url.src;
         this.inputs.title.value = title.textContent;
         this.inputs.url.value = url.src;
-        this.updatePages = updatePages;
+
 
     }
 }

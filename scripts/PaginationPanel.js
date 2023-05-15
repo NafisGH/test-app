@@ -18,7 +18,6 @@ export default class PaginationPanel {
 
   handleShowPages = () => {
     // Показывает страницу если их меньше 5
-    console.log(this.maxPages, this.currentPage)
     if (this.maxPages < 5) {
       return Array.from({ length: this.maxPages }).map((_, index) => index + 1);
     }
@@ -72,10 +71,10 @@ export default class PaginationPanel {
     this.showMarkkup();
     this.handleShowCards();
   };
+
   init = () => {
     this.numberCards = this.cards.length;
     this.maxPages = Math.ceil(this.numberCards / 10);
-
     this.btnPrev.addEventListener("click", this.handleClickPrevButton);
     this.btnNext.addEventListener("click", this.handleClickNextButton);
 
@@ -83,18 +82,18 @@ export default class PaginationPanel {
       this.currentPage = this.maxPages;
     }
     this.currentPage = 1;
-
     this.pages = this.handleShowPages();
-    console.log(this.pages)
     this.showMarkkup();
     this.handleShowCards();
   };
+
   showMarkkup = () => {
     this.pages.forEach((page) => {
       const elNewItem = this.createElPage(page);
       this.elemUl.append(elNewItem);
     });
   };
+
   createElPage = (value) => {
     const itemLiPage = document.createElement("li");
     if (this.currentPage === value) {

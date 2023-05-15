@@ -6,7 +6,7 @@ export const preventDefaults = (event) => {
 
 export const getElementsNewCard = () => {
     const tmplNewCard = document.querySelector('#tmpl-new-card'); // Нашли шаблон
-    console.log('----------', tmplNewCard)
+
     const cardClone = tmplNewCard.content.cloneNode(true); // Создаем клон шаблона
     const elCard = cardClone.querySelector('.card'); // Находим Li клонированный элемент
 
