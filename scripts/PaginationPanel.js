@@ -78,10 +78,17 @@ export default class PaginationPanel {
     this.btnPrev.addEventListener("click", this.handleClickPrevButton);
     this.btnNext.addEventListener("click", this.handleClickNextButton);
 
+    if (this.maxPages === 0) {
+      this.panelPaginationListCards.style.display = "none";
+      return listCards.innerHTML = "";
+    }
+
     if (this.currentPage > this.maxPages) {
       this.currentPage = this.maxPages;
     }
-    this.currentPage = 1;
+
+    this.panelPaginationListCards.style.display = "flex";
+    // this.currentPage = 1;
     this.pages = this.handleShowPages();
     this.showMarkkup();
     this.handleShowCards();

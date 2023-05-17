@@ -15,14 +15,17 @@ export default class PopupCreateCard extends Popup {
       title: {
         value: "",
         valid: false,
+        elError: this.popup.querySelector('.error-title'),
       },
       author: {
         value: "",
         valid: false,
+        elError: this.popup.querySelector('.error-author'),
       },
       url: {
         value: "",
         valid: false,
+        elError: this.popup.querySelector('.error-urlImg'),
       },
     };
     this.updatePages = updatePages;
@@ -61,9 +64,10 @@ export default class PopupCreateCard extends Popup {
         this.updatePages(cards);
         super.closePopup();
         this.clearInputs();
+        PopupCreateCard.dragAndDrop.handleClickBtnClearInput(event);
       }
 
-      PopupCreateCard.dragAndDrop.handleClickBtnClearInput(event);
+      
     });
 
     this.btnCloseModalCreate.addEventListener("click", () => {
@@ -76,25 +80,25 @@ export default class PopupCreateCard extends Popup {
     let valid = true;
 
     if (!this.inputs.title.value) {
-      this.inputs.title.textContent = "Поле title обязательно";
+      this.inputs.title.elError.textContent = "Title должно быть запонено";
       valid = false;
     } else {
-      this.inputs.title.textContent = "";
+      this.inputs.title.elError.textContent = "";
     }
 
     if (!this.inputs.author.value) {
-      this.inputs.author.textContent = "Поле author обязательно";
+      this.inputs.author.elError.textContent = "Author должно быть запонено";
       valid = false;
     } else {
-      this.inputs.author.textContent = "";
+      this.inputs.author.elError.textContent = "";
     }
 
     if (!this.inputs.url.value && !PopupCreateCard.dragAndDrop.file) {
-      this.inputs.url.textContent =
-        "Загрузите картинку или вставьте ссылку на нее из интернета";
+      this.inputs.url.elError.textContent =
+        "Загрузите картинку или вставьте ссылку";
       valid = false;
     } else {
-      this.inputs.url.textContent = "";
+      this.inputs.url.elError.textContent = "";
     }
 
     return valid;

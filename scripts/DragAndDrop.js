@@ -70,13 +70,17 @@ export default class DragAndDrop {
   // 3. Запускается когда мы нажимаем на кнопку Clear (отчистить поле от файла)
   handleClickBtnClearInput = (e) => {
     this.preventDefaults(e);
-    const elementImage = document.querySelector(".image");
-    if (elementImage) {
-      document
-        .querySelector(".drop-area")
-        .replaceChild(this.iconDownload, elementImage);
-      this.file = null;
-      this.changeBtnOnUpload();
+    // const elementImage = document.querySelector(".image");
+    // if (elementImage) {
+    //   document
+    //     .querySelector(".drop-area")
+    //     .replaceChild(this.iconDownload, elementImage);
+    //   this.file = null;
+    //   this.changeBtnOnUpload();
+    // }
+    this.preventDefaults(e);
+    if (this.imageDownload) {
+      this.clear()
     }
   };
 
@@ -102,24 +106,50 @@ export default class DragAndDrop {
 
   // 5. Добавляем предпоказ загружаемого файлы
   async previewFile(file) {
-    const srcImg = await new Promise((resolve) => {
-      let reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = function () {
-        let img = document.createElement("img");
-        img.className = "image";
-        img.src = reader.result;
-        document
-          .querySelector(".drop-area")
-          .replaceChild(img, document.querySelector(".drop-area-img"));
-        resolve(reader.result);
-      };
-    });
-    this.srcImg = srcImg;
+    // const srcImg = await new Promise((resolve) => {
+    //   let reader = new FileReader();
+    //   reader.readAsDataURL(file);
+    //   reader.onloadend = function () {
+    //     let img = document.createElement("img");
+    //     img.className = "image";
+    //     img.src = reader.result;
+    //     document
+    //       .querySelector(".drop-area")
+    //       .replaceChild(img, document.querySelector(".drop-area-img"));
+    //     resolve(reader.result);
+    //   };
+    // });
+    // this.srcImg = srcImg;
+    const reader = new FileReader();
+    
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      this.showImageInDOM(reader.result)
+    };
   }
 
   preventDefaults(e) {
     e.preventDefault();
     e.stopPropagation();
   }
+  
+  clear = () => {
+    if(this.dropArea.querySelector(".image") !== null) {
+      this.replaceChildInDropArea(this.iconDownload, this.imageDownload)
+    }
+    this.file = null;
+    this.srcImg = "";
+    this.changeBtnOnUpload();
+  }
+
+  showImageInDOM = (src) => {
+    let elImg = document.createElement("img");
+    elImg.className = "image";
+    elImg.src = src;
+    this.srcImg = src;
+    this.imageDownload = elImg;
+    this.replaceChildInDropArea(this.imageDownload, this.iconDownload)
+  }
+
+  replaceChildInDropArea = (newChild, oldСhild) => this.dropArea.replaceChild(newChild, oldСhild);
 }

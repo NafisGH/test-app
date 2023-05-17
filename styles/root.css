@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
 @import url('./panels/panel-cards/index.css');
 @import url('./panels/panel-filter/index.css');
 @import url('./panels/panel-search/index.css');
@@ -10,6 +12,10 @@
 /* @import url('./panel-search.css');
 @import url('./modal-create-card.css');
 @import url('./panel-filter.css'); */
+
+html {
+    font-family: 'Montserrat', sans-serif;
+}
 
 :root {
     --primary-width-btn: 40px;
