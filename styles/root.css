@@ -9,16 +9,14 @@
 
 @import url('./popups/index.css');
 
-/* @import url('./panel-search.css');
-@import url('./modal-create-card.css');
-@import url('./panel-filter.css'); */
+
 
 html {
     font-family: 'Montserrat', sans-serif;
 }
 
 :root {
-    --primary-width-btn: 40px;
+    --primary-width-btn: 48px;
 }
 
 * {
@@ -30,7 +28,7 @@ html {
 .app {
     background-color: #c4bebe;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: grid;
     grid-template-columns: 400px repeat(2, 1fr);
     grid-template-rows: min-content auto;
@@ -48,6 +46,9 @@ html {
     border-right: 2px solid white;
 }
 
+.name-project {
+    font-size: 40px;
+}
 
 
 /* .panel-filter{
@@ -71,9 +72,14 @@ html {
     background-color: rgba(89, 89, 91, 0.731);
     grid-row: 2/3;
     grid-column: 1/4;
-    padding: 10px;
+    padding: 0px 0px 100px 0px;
 
 }
+
+button:hover {
+    opacity: 70%;
+}
+
 
 
 

@@ -2,12 +2,10 @@ import Popup from "./Popup";
 import { cards } from "../utils/constants.js";
 
 export default class PopupDeleteCard extends Popup {
-    constructor({cls,updatePages,}) {
+    constructor({cls,}) {
         super(cls);
         this.btnDelete = this.popup.querySelector('#btn-confirm-delete-card')
         this.curentElCard = '';
-        
-        this.updatePages = updatePages;
         this.init()
     }
     init() {
@@ -25,8 +23,9 @@ export default class PopupDeleteCard extends Popup {
             super.closePopup()
         })
     }
-    openPopup({elCard, }) {
+    openPopup({elCard, updatePages, }) {
         super.openPopup()
         this.curentElCard = elCard;
+        this.updatePages = updatePages;
     }
 }

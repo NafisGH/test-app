@@ -125,6 +125,7 @@ export default class PopupCreateCard extends Popup {
       id,
       likes: 0,
       dislikes: 0,
+      updatePages: this.updatePages,
     };
 
     const newCard = new Card(dataCard);

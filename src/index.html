@@ -28,6 +28,12 @@
                     <span class="error error-author"></span>
                 </div>
 
+                <div class="field-input">
+                    <p><label for="urlImg" class="label-input">url картинки</label></p>
+                    <input type="url" id="urlImg" placeholder="Введите url картинки" />
+                    <span class="error error-urlImg"></span>
+                </div>
+
                 <div class="field-input upload-file">
                         <div class="drop-area">
                             <img src="<%=require('../assets/icons/icons_SVG/download.svg')%>" alt="" class="drop-area-img">
@@ -39,11 +45,7 @@
                         <p>Нажмите на кнопку, что бы выбрать картику или перетащите ее сюда</p>
                 </div>
 
-                <div class="field-input">
-                    <p><label for="urlImg" class="label-input">url картинки</label></p>
-                    <input type="url" id="urlImg" placeholder="Введите url картинки" />
-                    <span class="error error-urlImg"></span>
-                </div>
+                
 
                 <button type="button" id="create">Создать</button>
 
@@ -122,7 +124,7 @@
                 </button>
             </form>
 
-            <button class="btn-search btn-create-new-card">
+            <button class="btn-create-new-card">
                 <img src="<%=require('../assets/icons/icons_SVG/create_a_card.svg')%>" alt="create_a_card" />
             </button>
             <!-- <p class="text-create-new-card">Создать новую карточку</p> -->

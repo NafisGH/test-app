@@ -12,7 +12,7 @@
 .panel-pagination-list-cards ul {
     list-style-type: none;
     display: flex;
-    margin: 0px 15px 0px 15px;
+    margin: 0px 30px 0px 30px;
 }
 
 .panel-pagination-list-cards ul li:not(:last-child) {
@@ -29,12 +29,12 @@
 }
 
 .panel-pagination-list-cards ul li {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background: white;
     display: grid;
     place-items: center;
-    font-size: 35px;
+    font-size: 25px;
     border-radius: 50%;
     flex-shrink: 0;
     user-select: none;

@@ -3,9 +3,6 @@ import PopupDeleteCard from "./PopupDeleteCard.js";
 import PaginationPanel from "./PaginationPanel.js";
 
 import { getElementsNewCard } from "../utils/helper.js";
-import { cards } from "../utils/constants.js";
-
-let paginationPanel = new PaginationPanel(cards);
 
 export default class Card {
   constructor(data) {
@@ -24,12 +21,10 @@ export default class Card {
 
   static popupEditCard = new PopupEditeCard({
     cls: "modal-edite-card",
-    updatePages: paginationPanel.updatePages,
   });
   
   static popupDeleteCard = new PopupDeleteCard({
     cls: "modal-delete-card",
-    updatePages: paginationPanel.updatePages,
   });
 
   static order = 1;

@@ -6,7 +6,7 @@ import { cards } from "../utils/constants";
 const elemNewCard = getElementsNewCard()
 
 export default class PopupEditeCard extends Popup {
-    constructor({cls, updatePages}) {
+    constructor({cls}) {
         super(cls);
         this.btnSubmit = this.popup.querySelector('#btn-edite-content');
         this.currentElementsCard = '';
@@ -20,7 +20,6 @@ export default class PopupEditeCard extends Popup {
                 valid: false,
               },
         };
-        this.updatePages = updatePages;
 
         this.inputTitle = this.popup.querySelector('#name-edite')
         this.inputUrl = this.popup.querySelector('#urlImg-edite')
@@ -34,8 +33,9 @@ export default class PopupEditeCard extends Popup {
             const {title, url, elCard, id} = this.currentElementsCard;
             const card = cards.find((card) => card.id === id)
 
-            this.currentElementsCard.title.textContent = this.inputs.title.value;
-            this.currentElementsCard.url.textContent = this.inputs.url.value;
+            title.textContent = this.inputs.title.value;
+            url.src = this.inputs.url.value;
+
             card.title = this.inputs.title.value;
             card.url = this.inputs.url.value;
 
@@ -43,6 +43,7 @@ export default class PopupEditeCard extends Popup {
             this.inputs.url.value = '';
             this.inputTitle.value = '';
             this.inputUrl.value = '';
+
             this.updatePages(cards)
             super.closePopup()
         })
@@ -56,7 +57,8 @@ export default class PopupEditeCard extends Popup {
           })
     }
 
-    openPopup({title, url, elCard, id,}) {
+    openPopup({title, url, elCard, id, updatePages}) {
+        
         this.currentElementsCard = {title, url, elCard, id}
         super.openPopup();
         this.elemEditeCard = elemNewCard
@@ -64,7 +66,7 @@ export default class PopupEditeCard extends Popup {
         this.inputUrl.value = url.src;
         this.inputs.title.value = title.textContent;
         this.inputs.url.value = url.src;
-
+        this.updatePages = updatePages;
 
     }
 }

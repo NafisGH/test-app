@@ -11,10 +11,11 @@
 .btn-search {
     width: var(--primary-width-btn);
     padding: 10px;
-    background: none;
+    background-color: #fff;
     border: none;
     border-radius: 50%;
     transition: all .1s linear;
+    margin-left: 10px;
 }
 
 .btn-search:hover {
@@ -29,11 +30,22 @@
 
 #form-search-input {
     width: 100%;
-    max-width: 80%;  /* 60% от текущего родительского окна */
+    max-width: 80%;  /* от текущего родительского окна */
     outline: none;
     padding: 0 10px;
+    border: none;
 }
 
 .btn-create-new-card {
-    display: flex;
+    width: var(--primary-width-btn);
+}
+
+.btn-create-new-card > img {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-create-new-card:hover {
+    transform: scale(1.2);
+    cursor: pointer;
 }

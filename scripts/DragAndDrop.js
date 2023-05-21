@@ -43,10 +43,10 @@ export default class DragAndDrop {
   handleDrop = (e) => {
     this.preventDefaults(e);
     let dt = e.dataTransfer;
-    let files = dt.files[0];
+    this.file = dt.files[0];
     this.unhighlight();
     this.changeBtnOnReset();
-    this.previewFile(files);
+    this.previewFile();
   };
 
   // 1. Запускается когда поле инпута менятеся. Т.е, если в поле сброса ничего
@@ -57,7 +57,7 @@ export default class DragAndDrop {
     this.file = e.target.files[0];
     if (this.file) {
       this.changeBtnOnReset();
-      this.previewFile(this.file);
+      this.previewFile();
     }
   };
 
@@ -105,7 +105,8 @@ export default class DragAndDrop {
   unhighlight = () => this.dropArea.classList.remove("highlight");
 
   // 5. Добавляем предпоказ загружаемого файлы
-  async previewFile(file) {
+  async previewFile() {
+    this.file
     // const srcImg = await new Promise((resolve) => {
     //   let reader = new FileReader();
     //   reader.readAsDataURL(file);
@@ -122,7 +123,7 @@ export default class DragAndDrop {
     // this.srcImg = srcImg;
     const reader = new FileReader();
     
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(this.file);
     reader.onloadend = () => {
       this.showImageInDOM(reader.result)
     };
