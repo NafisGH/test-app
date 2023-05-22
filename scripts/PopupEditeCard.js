@@ -35,7 +35,6 @@ export default class PopupEditeCard extends Popup {
 
             title.textContent = this.inputs.title.value;
             url.src = this.inputs.url.value;
-
             card.title = this.inputs.title.value;
             card.url = this.inputs.url.value;
 
@@ -43,7 +42,6 @@ export default class PopupEditeCard extends Popup {
             this.inputs.url.value = '';
             this.inputTitle.value = '';
             this.inputUrl.value = '';
-
             this.updatePages(cards)
             super.closePopup()
         })
@@ -58,7 +56,6 @@ export default class PopupEditeCard extends Popup {
     }
 
     openPopup({title, url, elCard, id, updatePages}) {
-        
         this.currentElementsCard = {title, url, elCard, id}
         super.openPopup();
         this.elemEditeCard = elemNewCard

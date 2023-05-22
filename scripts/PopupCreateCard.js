@@ -2,11 +2,8 @@ import Popup from "./Popup";
 import { handleGetCorrectDate } from "../utils/helper";
 import { cardsFromServer } from "../src";
 import DragAndDrop from "./DragAndDrop";
-
 import Card from "./Card";
 import { cards } from "../utils/constants.js";
-
-const listCards = document.querySelector(".list-card");
 
 export default class PopupCreateCard extends Popup {
   constructor({cls, updatePages}) {
@@ -32,7 +29,6 @@ export default class PopupCreateCard extends Popup {
 
     this.btnSubmit = document.getElementById("create");
     this.btnCloseModalCreate = document.getElementById("button-close");
-
     this.inputTitleCardName = document.getElementById("сard-name");
     this.inputAuthor = document.getElementById("card-author");
     this.inputUrlImg = document.getElementById("urlImg");
@@ -53,6 +49,11 @@ export default class PopupCreateCard extends Popup {
       this.inputs.url.value = event.target.value;
     });
 
+    this.btnCloseModalCreate.addEventListener('click', (event) => {
+      event.preventDefault();
+      PopupCreateCard.dragAndDrop.handleClickBtnClearInput(event);
+    })
+
     this.btnSubmit.addEventListener("click", (event) => {
       event.preventDefault();
       const newElCard = this.createNewCard();
@@ -60,14 +61,11 @@ export default class PopupCreateCard extends Popup {
 
       if (valid) {
         cards.push(newElCard);
-        // listCards.append(newElCard.elemNewCard.elCard);
         this.updatePages(cards);
         super.closePopup();
         this.clearInputs();
         PopupCreateCard.dragAndDrop.handleClickBtnClearInput(event);
       }
-
-      
     });
 
     this.btnCloseModalCreate.addEventListener("click", () => {

@@ -23,43 +23,8 @@ export default class PanelSearch {
 
         this.inputSearch.addEventListener('input', this.onInput);
         this.btnSearch.addEventListener('click', this.onSubmit);
-        // this.inputSearch.addEventListener("input", (event) => {
-        //     this.valueInputSearch = event.target.value;
-        // });
 
-        // this.btnSearch.addEventListener("click", (event) => {
-        //     event.preventDefault();
-          
-        //     // Регулярное выражение, которое будем использовать для поиска
-        //     const regexp = new RegExp(this.valueInputSearch, "i");
-        //     const filteredIdCards = []; // тут будут лежать id карточек, которые нужно показать
-        //     const filteredElCards = []; // тут будут лежать карточеки, которые нужно показать
-          
-        //     cards.forEach((elCrad) => {
-        //       if (regexp.test(elCrad.title)) {
-        //         filteredIdCards.push(elCrad.id);
-        //         filteredElCards.push(elCrad);
-        //       }
-        //     });
-          
-        //     // Находим карточки, которые в данный момент показываются на странице
-        //     let currentElListCards = this.listCards.querySelectorAll(".card");
-          
-        //     currentElListCards.forEach((currentElCard) => {
-        //       if (!filteredIdCards.includes(currentElCard.id)) {
-        //         currentElCard.remove();
-        //       }
-        //     });
-          
-        //     let index = 0;
-          
-        //     filteredElCards.forEach((elFilteredElCard) => {
-        //       searchCards(elFilteredElCard)
-        //       index = 0;
-        //     });
-
-        //   });
-    } // init
+    }
 
     onInput = event => this.handleInputValue(event);
     onSubmit = event => this.handleSearch2(event);
@@ -75,14 +40,4 @@ export default class PanelSearch {
         const filteredElCards = cards.filter(elCard => regexp.test(elCard.title));
         updatePages(filteredElCards);
       }
-
-    // searchCards = (elFilteredElCard) => {
-    //     // const listCards = document.querySelector(".list-card");
-    //     if (!this.listCards.querySelector(`li.card[id="${elFilteredElCard.id}"]`)) {
-    //         this.listCards.append(elFilteredElCard.elemNewCard.elCard); // Добавляем в разметку Li, карточку объект
-    //     }
-    //   };
-
-
-
 }

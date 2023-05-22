@@ -1,6 +1,5 @@
 import PopupEditeCard from "./PopupEditeCard.js";
 import PopupDeleteCard from "./PopupDeleteCard.js";
-import PaginationPanel from "./PaginationPanel.js";
 
 import { getElementsNewCard } from "../utils/helper.js";
 
